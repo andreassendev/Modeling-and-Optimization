@@ -64,3 +64,4 @@ def plot_tour(tour: List[int], coords: Dict[str, Tuple[float, float]],
     except ImportError:
         print("matplotlib not available - install with: pip install matplotlib")
 
+

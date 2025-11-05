@@ -54,3 +54,4 @@ Thumbs.db
 # PDF files (assignment documents)
 *.pdf
 
+.Rproj.user
