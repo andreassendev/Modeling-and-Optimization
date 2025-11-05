@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs and output
+logs/*.txt
+solutions/*.txt
+solutions/*.png
+PDP-solution-*.txt
+
+# Keep directory structure
+!logs/.gitkeep
+!solutions/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gurobi
+*.lic
+*.grb
+
+# PDF files (assignment documents)
+*.pdf
+
