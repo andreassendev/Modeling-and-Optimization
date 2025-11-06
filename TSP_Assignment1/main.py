@@ -1,12 +1,11 @@
 """
-Main script to run all three TSP formulations and generate comparison table
+Hovedskript for å kjøre alle tre TSP formuleringer og generere sammenligningstabell
 """
 
 import sys
 import os
 from datetime import datetime
 
-# Add current directory to path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from mtz_model import solve_mtz
@@ -14,13 +13,9 @@ from svestka_model import solve_svestka
 from dantzig_model import solve_dantzig
 
 
-def print_results_table(results: dict, name: str = "YourName"):
+def print_results_table(results: dict, name: str = "MartinAndreassen"):
     """
-    Print formatted results table comparing all three models
-    
-    Args:
-        results: Dictionary with results from all three models
-        name: User name identifier
+    Skriver ut formatert resultattabell som sammenligner alle tre modellene
     """
     print("\n" + "="*80)
     print("RESULTS SUMMARY")
@@ -121,12 +116,9 @@ def print_results_table(results: dict, name: str = "YourName"):
     print(f"\nSummary saved to: {summary_file}")
 
 
-def main(name: str = "YourName"):
+def main(name: str = "MartinAndreassen"):
     """
-    Main function to run all three TSP models
-    
-    Args:
-        name: User name identifier for log/solution files
+    Hovedfunksjon for å kjøre alle tre TSP modeller
     """
     print("="*80)
     print("TSP Assignment 1 - Comparing Three Formulations")
@@ -168,15 +160,13 @@ def main(name: str = "YourName"):
 
 
 if __name__ == "__main__":
-    # Change "YourName" to your actual name
-    user_name = "YourName"
+    user_name = "MartinAndreassen"
     
-    # You can also pass name as command line argument
     if len(sys.argv) > 1:
         user_name = sys.argv[1]
     
     results = main(user_name)
     
-    print("\n[OK] All models completed!")
-    print(f"Check logs/ directory for detailed logs")
-    print(f"Check solutions/ directory for solution files and summary")
+    print("\n[OK] Alle modeller fullført!")
+    print(f"Sjekk logs/ mappen for detaljerte logger")
+    print(f"Sjekk solutions/ mappen for løsningsfiler og sammenfatning")

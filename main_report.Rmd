@@ -1,0 +1,76 @@
+---
+title: "Main report"
+author: "Martin Andreassen"
+date: "November 2025"
+lang: nb
+output:
+  pdf_document:
+    latex_engine: xelatex
+geometry: margin=1in
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{makecell}
+  - \usepackage{siunitx}
+  
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+echo = FALSE,
+message = FALSE,
+warning = FALSE
+)
+
+library(dplyr)
+library(tibble)
+library(knitr)
+library(kableExtra)
+```
+
+## Q1)
+
+```{r tsp-table, echo=FALSE}
+
+
+res <- tribble(
+  ~Model, ~`Number of variables`, ~`Number of constraints`, ~`Objective value`, ~`Running time`,
+  "Dantzig", 10506,  206,   8038.69, "7.58 s",
+  "Svestka",            21012, 10816,  8038.69, "27.65 s",
+  "MTZ",                              9975,  9985,  8038.69, "3600 s (TimeLimit)"
+) |>
+  mutate(`Objective value` = sprintf("%.4f", as.numeric(`Objective value`)))
+
+kbl(
+  res,
+  booktabs = TRUE,
+  align = c("l","r","r","r","c"),
+  caption = "Comparison of TSP formulations (same dataset)"
+) |>
+  kable_styling(
+    full_width = FALSE,
+    latex_options = c("hold_position","scale_down")
+  ) |>
+  column_spec(1, width = "5cm")
+
+
+```
+
+Tabellen viser at alle tre modellene finner samme optimale verdi, men med tydelige forskjeller i ytelse. Dantzig-formuleringen er klart raskest og løser problemet på under 8 sekunder. Svestka-modellen bruker betydelig lengre tid fordi den har langt flere variabler og restriksjoner. MTZ-modellen har færrest variabler, men en svakere LP-relaksasjon, og når derfor ikke optimal løsning innen tidsgrensen. Totalt sett er Dantzig-modellen den mest effektive formuleringen for dette datasettet.
+
+
+
+## Q3)
+
+Et Traveling Salesperson Problem (TSP) kan løses direkte med PDP-modellen ved kun å endre **datafilen**, ikke selve modellen.
+
+Hver by representeres som et **pickup–delivery-par** der pickup og levering ligger på samme sted. Dette gjør at hver by automatisk besøkes én gang, fordi modellen krever at hver pickup må etterfølges av sin tilhørende levering. Avstanden mellom $(i, n+i)$ settes til 0, mens alle avstander mellom ulike byer settes lik TSP-distansene.
+
+Kapasiteten settes høyt nok til at den ikke er bindende, og spot-charterkostnaden ($C_S$) gjøres svært høy for å sikre at alle byer må besøkes av kjøretøyet ($y_i = 0$).
+
+På denne måten vil PDP-modellen finne en rute som tilsvarer   den optimale TSP-turen, og målfunksjonen vil være identisk med TSP-avstanden.
+
+

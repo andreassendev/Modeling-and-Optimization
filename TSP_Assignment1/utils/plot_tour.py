@@ -1,5 +1,5 @@
 """
-Optional plotting utility for TSP tours
+Valgfri plotting utility for TSP turer
 """
 
 import os
@@ -10,20 +10,13 @@ def plot_tour(tour: List[int], coords: Dict[str, Tuple[float, float]],
               cities: List[str], title: str = "TSP Tour", 
               save_path: str = None) -> None:
     """
-    Plot the TSP tour using matplotlib
-    
-    Args:
-        tour: List of city indices in tour order
-        coords: Dictionary mapping city names to coordinates
-        cities: List of city names
-        title: Plot title
-        save_path: Optional path to save the plot
+    Plotter TSP tur ved hjelp av matplotlib
     """
     try:
         import matplotlib.pyplot as plt
         
         if not tour:
-            print("Empty tour - cannot plot")
+            print("Tom tur - kan ikke plotte")
             return
         
         # Extract coordinates for tour
@@ -55,13 +48,14 @@ def plot_tour(tour: List[int], coords: Dict[str, Tuple[float, float]],
         if save_path:
             os.makedirs(os.path.dirname(save_path) if os.path.dirname(save_path) else '.', exist_ok=True)
             plt.savefig(save_path, dpi=150, bbox_inches='tight')
-            print(f"Plot saved to {save_path}")
+            print(f"Plot lagret til {save_path}")
         else:
             plt.show()
         
         plt.close()
         
     except ImportError:
-        print("matplotlib not available - install with: pip install matplotlib")
+        print("matplotlib ikke tilgjengelig - installer med: pip install matplotlib")
+
 
 
