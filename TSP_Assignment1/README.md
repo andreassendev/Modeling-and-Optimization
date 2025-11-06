@@ -161,7 +161,7 @@ This project is for academic/educational purposes.
 
 ## 👤 Author
 
-[Your Name]
+Martin Andreassen
 
 ## 📚 References
 
