@@ -1,4 +1,4 @@
-# INF170 - Modeling and Optimization (MA2)
+# Modeling and Optimization
 
 This repository contains assignments for INF170 (Modeling and Optimization) course, implementing various optimization problems using Gurobi Optimizer.
 
@@ -249,7 +249,7 @@ This project is for academic/educational purposes as part of the INF170 course.
 
 ## 👤 Author
 
-[Your Name]
+Martin Andreassen
 
 ---
 
