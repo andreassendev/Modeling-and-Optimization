@@ -15,7 +15,7 @@ Svestka formulation
 
 Dantzig–Fulkerson–Johnson (DFJ) formulation
 
-Pickup and Delivery Problem (PDP)
+**Pickup and Delivery Problem (PDP)**
 
 Exact mathematical model with routing, capacity, and time constraints.
 
